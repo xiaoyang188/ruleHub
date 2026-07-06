@@ -1,22 +1,28 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { siteFeatures } from "@/lib/site-features";
 import { cn } from "@/lib/utils";
 
 export type DocNavItem = {
   href: string;
   label: string;
+  api?: boolean;
 };
 
 const DOC_NAV: DocNavItem[] = [
   { href: "/docs", label: "概览" },
-  { href: "/docs/api", label: "API 文档" },
+  { href: "/docs/api", label: "API 文档", api: true },
   { href: "/docs/skill", label: "Skill 文档" },
   { href: "/docs/faq", label: "FAQ" },
   { href: "/docs/official", label: "官方 Skills" },
   { href: "/docs/codex", label: "Codex Skills" },
   { href: "/docs/spec", label: "规范" },
-  { href: "/developers", label: "开发者门户" },
+  { href: "/developers", label: "开发者门户", api: true },
 ];
+
+const visibleDocNav = DOC_NAV.filter(
+  (item) => siteFeatures.showApiDocs || !item.api
+);
 
 export function DocsLayout({
   title,
@@ -52,7 +58,7 @@ export function DocsLayout({
       <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
         <aside className="shrink-0 lg:w-52">
           <nav aria-label="文档导航" className="sticky top-24 space-y-1">
-            {DOC_NAV.map((item) => (
+            {visibleDocNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

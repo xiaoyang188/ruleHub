@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, CodeXml, Search, Users } from "lucide-react";
 import { STATS } from "@/data/mock";
+import { siteFeatures } from "@/lib/site-features";
 
 export function HeroCtaPanel() {
   return (
@@ -35,29 +36,31 @@ export function HeroCtaPanel() {
             <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
           </Link>
 
-          <Link
-            href="/docs/api"
-            className="group flex min-w-0 flex-col gap-4 rounded-md border border-border bg-muted/20 p-4 transition-colors hover:border-primary/55 hover:bg-background"
-          >
-            <span className="flex items-center justify-between gap-3">
-              <span className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase text-primary">
-                <CodeXml className="h-4 w-4" />
-                API
+          {siteFeatures.showApiDocs && (
+            <Link
+              href="/docs/api"
+              className="group flex min-w-0 flex-col gap-4 rounded-md border border-border bg-muted/20 p-4 transition-colors hover:border-primary/55 hover:bg-background"
+            >
+              <span className="flex items-center justify-between gap-3">
+                <span className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase text-primary">
+                  <CodeXml className="h-4 w-4" />
+                  API
+                </span>
+                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
               </span>
-              <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
-            </span>
-            <span className="min-w-0">
-              <span className="block text-sm font-semibold leading-5 text-foreground">
-                把同一份目录数据接入你的工具
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold leading-5 text-foreground">
+                  把同一份目录数据接入你的工具
+                </span>
+                <span className="mt-2 block text-xs leading-5 text-muted-foreground">
+                  通过 REST API 使用 {STATS.totalSkills} 个公开 skills，用在自己的搜索、分析或 agent 工作流里。
+                </span>
               </span>
-              <span className="mt-2 block text-xs leading-5 text-muted-foreground">
-                通过 REST API 使用 {STATS.totalSkills} 个公开 skills，用在自己的搜索、分析或 agent 工作流里。
+              <span className="text-xs font-semibold uppercase text-primary">
+                查看 API 文档
               </span>
-            </span>
-            <span className="text-xs font-semibold uppercase text-primary">
-              查看 API 文档
-            </span>
-          </Link>
+            </Link>
+          )}
 
           <div className="grid grid-cols-2 gap-3">
             <Link

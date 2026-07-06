@@ -9,6 +9,7 @@ import {
   Moon,
   Package,
   Search,
+  Sparkles,
   Users,
   X,
 } from "lucide-react";
@@ -23,6 +24,7 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { href: "/search", label: "搜索", icon: Search, highlight: true },
   { href: "/skills", label: "Skills", icon: Package },
+  { href: "/vibecoding", label: "VibeCoding", icon: Sparkles },
   { href: "/creators", label: "创作者", icon: Users },
   { href: "/occupations", label: "职业技能", icon: BriefcaseBusiness },
   { href: "/docs", label: "文档", icon: BookOpen },

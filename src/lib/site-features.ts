@@ -11,4 +11,5 @@ export const siteFeatures = {
   showManus: !IS_PREVIEW_MODE,
   showPublishDocs: !IS_PREVIEW_MODE,
   showApiAuthDocs: !IS_PREVIEW_MODE,
+  showApiDocs: !IS_PREVIEW_MODE,
 } as const;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Briefcase, Code2, Search, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { getGridStaggerDelay } from "@/lib/animation";
+import { siteFeatures } from "@/lib/site-features";
 
 const EXPLORE_CARDS = [
   {
@@ -69,34 +70,36 @@ export function EcosystemSection() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal className="mt-8" delay={200}>
-          <Link
-            href="/docs/api"
-            className="group flex flex-col rounded-xl border border-primary/30 bg-primary/5 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:flex-row md:items-center md:justify-between"
-          >
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary/15">
-                <Code2 className="h-6 w-6 text-primary" />
+        {siteFeatures.showApiDocs && (
+          <ScrollReveal className="mt-8" delay={200}>
+            <Link
+              href="/docs/api"
+              className="group flex flex-col rounded-xl border border-primary/30 bg-primary/5 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 md:flex-row md:items-center md:justify-between"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary/15">
+                  <Code2 className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-primary">
+                    开发者入口
+                  </p>
+                  <h3 className="mt-1 text-xl font-semibold text-foreground">
+                    把同一份目录数据接入你的工具
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm text-muted-foreground">
+                    通过 REST API 使用 200 万+ 个公开 skills，用在自己的搜索、分析或 agent
+                    工作流里。
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-primary">
-                  开发者入口
-                </p>
-                <h3 className="mt-1 text-xl font-semibold text-foreground">
-                  把同一份目录数据接入你的工具
-                </h3>
-                <p className="mt-2 max-w-xl text-sm text-muted-foreground">
-                  通过 REST API 使用 200 万+ 个公开 skills，用在自己的搜索、分析或 agent
-                  工作流里。
-                </p>
-              </div>
-            </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:mt-0">
-              查看 API 文档
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </span>
-          </Link>
-        </ScrollReveal>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:mt-0">
+                查看 API 文档
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          </ScrollReveal>
+        )}
 
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {EXPLORE_CARDS.map((card, index) => (
