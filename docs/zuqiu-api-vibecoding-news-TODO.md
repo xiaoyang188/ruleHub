@@ -389,6 +389,7 @@ async function syncHnNewsOnce() {
 
 | 功能 | 说明 |
 |------|------|
+| **新闻全文 `content`** | ⭐ 见专篇 **`zuqiu-api-vibecoding-content-TODO.md`** |
 | 多数据源 | `source=reddit` / `source=rss`，RuleHub 仍用 `type=news` |
 | 手动精选新闻 | `source=manual`，管理端 POST 写入 |
 | 按标签筛选 | API 加 `tag=ai-news`（RuleHub 暂未用） |

@@ -201,7 +201,7 @@ GET /api/vibecoding/items?type=news&source=hn&page=1&limit=12&sort=recent
 
 **不需要新 REST 接口**，只需 zuqiu-api 增加 HN `topstories` 同步并写入 `type=news`。
 
-当前线上 `type=news` 返回 **空列表**，待 zuqiu 实现 `syncHnNewsOnce()` 后重新 `POST /api/vibecoding/sync`。
+当前线上 `type=news` 若摘要为空，见 **`zuqiu-api-vibecoding-content-TODO.md`**（同步抓全文 `content` 字段）。
 
 **快速验收：**
 
