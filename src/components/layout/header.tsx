@@ -7,6 +7,7 @@ import {
   LogIn,
   Menu,
   Moon,
+  Newspaper,
   Package,
   Search,
   Sparkles,
@@ -24,9 +25,10 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { href: "/search", label: "搜索", icon: Search, highlight: true },
   { href: "/skills", label: "Skills", icon: Package },
-  { href: "/vibecoding", label: "VibeCoding", icon: Sparkles },
   { href: "/creators", label: "创作者", icon: Users },
   { href: "/occupations", label: "职业技能", icon: BriefcaseBusiness },
+  { href: "/vibecoding", label: "VibeCoding", icon: Sparkles },
+  { href: "/vibecoding/news", label: "AI 最新消息", icon: Newspaper },
   { href: "/docs", label: "文档", icon: BookOpen },
 ] as const;
 

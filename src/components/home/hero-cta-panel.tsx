@@ -1,7 +1,41 @@
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, CodeXml, Search, Users } from "lucide-react";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  CodeXml,
+  Newspaper,
+  Search,
+  Sparkles,
+  Users,
+} from "lucide-react";
 import { STATS } from "@/data/mock";
 import { siteFeatures } from "@/lib/site-features";
+import { cn } from "@/lib/utils";
+
+function CtaTile({
+  href,
+  icon: Icon,
+  iconClassName,
+  label,
+}: {
+  href: string;
+  icon: typeof Search;
+  iconClassName: string;
+  label: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group flex min-h-24 min-w-0 flex-col justify-between rounded-md border border-border bg-muted/20 p-4 transition-colors hover:border-primary/55 hover:bg-background"
+    >
+      <span className="flex items-center justify-between gap-3">
+        <Icon className={cn("h-4 w-4 shrink-0", iconClassName)} />
+        <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
+      </span>
+      <span className="text-sm font-semibold leading-5 text-foreground">{label}</span>
+    </Link>
+  );
+}
 
 export function HeroCtaPanel() {
   return (
@@ -63,30 +97,30 @@ export function HeroCtaPanel() {
           )}
 
           <div className="grid grid-cols-2 gap-3">
-            <Link
+            <CtaTile
+              href="/vibecoding"
+              icon={Sparkles}
+              iconClassName="text-primary"
+              label="VibeCoding"
+            />
+            <CtaTile
+              href="/vibecoding/news"
+              icon={Newspaper}
+              iconClassName="text-amber-500 dark:text-amber-400"
+              label="AI 最新消息"
+            />
+            <CtaTile
               href="/creators"
-              className="group flex min-h-24 min-w-0 flex-col justify-between rounded-md border border-border bg-muted/20 p-4 transition-colors hover:border-primary/55 hover:bg-background"
-            >
-              <span className="flex items-center justify-between gap-3">
-                <Users className="h-4 w-4 shrink-0 text-blue-500 dark:text-blue-400" />
-                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
-              </span>
-              <span className="text-sm font-semibold leading-5 text-foreground">
-                浏览创作者
-              </span>
-            </Link>
-            <Link
+              icon={Users}
+              iconClassName="text-blue-500 dark:text-blue-400"
+              label="浏览创作者"
+            />
+            <CtaTile
               href="/occupations"
-              className="group flex min-h-24 min-w-0 flex-col justify-between rounded-md border border-border bg-muted/20 p-4 transition-colors hover:border-primary/55 hover:bg-background"
-            >
-              <span className="flex items-center justify-between gap-3">
-                <BriefcaseBusiness className="h-4 w-4 shrink-0 text-emerald-500 dark:text-emerald-400" />
-                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
-              </span>
-              <span className="text-sm font-semibold leading-5 text-foreground">
-                按职业探索
-              </span>
-            </Link>
+              icon={BriefcaseBusiness}
+              iconClassName="text-emerald-500 dark:text-emerald-400"
+              label="按职业探索"
+            />
           </div>
         </div>
       </div>

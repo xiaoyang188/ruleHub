@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Search, Users } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Newspaper, Search, Sparkles, Users } from "lucide-react";
 import { STATS } from "@/data/mock";
 import { HeroCtaPanel } from "@/components/home/hero-cta-panel";
 import { HeroDecorations } from "@/components/ui/site-chrome";
@@ -53,7 +53,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="mt-7 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-stretch gap-3 lg:hidden">
+            <div className="mt-7 grid grid-cols-2 items-stretch gap-3 lg:hidden">
               <Link
                 href="/search"
                 className="col-span-2 inline-flex min-h-11 min-w-0 overflow-hidden rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-dark"
@@ -64,6 +64,28 @@ export function Hero() {
                     搜索 Skills
                   </span>
                   <ArrowRight className="h-4 w-4 shrink-0" />
+                </span>
+              </Link>
+              <Link
+                href="/vibecoding"
+                className="inline-flex min-h-11 min-w-0 overflow-hidden rounded-md border border-border bg-card/70 px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 hover:bg-muted/60 sm:px-5"
+              >
+                <span className="flex min-w-0 items-center justify-center gap-2">
+                  <Sparkles className="h-4 w-4 shrink-0 text-primary" />
+                  <span className="min-w-0 break-words text-center leading-5 [overflow-wrap:anywhere]">
+                    VibeCoding
+                  </span>
+                </span>
+              </Link>
+              <Link
+                href="/vibecoding/news"
+                className="inline-flex min-h-11 min-w-0 overflow-hidden rounded-md border border-border bg-card/70 px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 hover:bg-muted/60 sm:px-5"
+              >
+                <span className="flex min-w-0 items-center justify-center gap-2">
+                  <Newspaper className="h-4 w-4 shrink-0 text-amber-500" />
+                  <span className="min-w-0 break-words text-center leading-5 [overflow-wrap:anywhere]">
+                    AI 消息
+                  </span>
                 </span>
               </Link>
               <Link
