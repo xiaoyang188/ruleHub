@@ -3,6 +3,13 @@ import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/catalog-sidebar";
 import { PrimaryCtaLink } from "@/components/ui/site-chrome";
 import { STATS } from "@/data/mock";
+import { createPageMetadata } from "@/lib/site-seo";
+
+export const metadata = createPageMetadata({
+  title: "关于 RuleHub",
+  description: "了解 RuleHub — 独立 Agent Skills 市场与 AI 编程灵感聚合站。",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

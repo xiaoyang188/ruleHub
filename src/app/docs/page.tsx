@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/catalog-sidebar";
 import { PrimaryCtaLink } from "@/components/ui/site-chrome";
+import { createPageMetadata } from "@/lib/site-seo";
 import { siteFeatures } from "@/lib/site-features";
+
+export const metadata = createPageMetadata({
+  title: "文档中心",
+  description: "RuleHub Agent Skills 使用文档、API 说明、Skill 规范与常见问题。",
+  path: "/docs",
+});
 
 const DOC_LINKS = [
   { href: "/docs/api", label: "API 文档", desc: "REST API 接入与配额说明", api: true },

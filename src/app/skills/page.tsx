@@ -4,6 +4,7 @@ import { Breadcrumbs, CatalogSidebar } from "@/components/layout/catalog-sidebar
 import { CatalogLinkCard, CatalogSectionHeading } from "@/components/catalog/catalog-section";
 import { SkillCard } from "@/components/home/skill-card";
 import { PrimaryCtaLink } from "@/components/ui/site-chrome";
+import { createPageMetadata } from "@/lib/site-seo";
 import {
   CATALOG_STATS,
   CATEGORY_DOMAINS,
@@ -13,6 +14,13 @@ import {
 } from "@/data/catalog";
 import { FEATURED_SKILLS, OCCUPATIONS, STATS } from "@/data/mock";
 import { getFeaturedSkills } from "@/lib/skillsmp-api";
+
+export const metadata = createPageMetadata({
+  title: "Agent Skills 目录",
+  description: "浏览 RuleHub 收录的 Agent Skills 目录，按职业、分类与平台探索 Claude / Codex 开源 skills。",
+  path: "/skills",
+  keywords: ["Skills 目录", "Agent Skills", "Claude Skills", "Codex"],
+});
 
 const MAX_OCCUPATION_COUNT = 1_265_857;
 

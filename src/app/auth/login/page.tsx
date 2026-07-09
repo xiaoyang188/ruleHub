@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Github } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/catalog-sidebar";
 import { IS_PREVIEW_MODE } from "@/lib/site-features";
+import { createPageMetadata } from "@/lib/site-seo";
+
+export const metadata = createPageMetadata({
+  title: "登录",
+  description: "登录 RuleHub",
+  path: "/auth/login",
+  noIndex: true,
+});
 
 export default function LoginPage() {
   if (IS_PREVIEW_MODE) {
