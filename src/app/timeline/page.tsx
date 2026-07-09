@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/layout/catalog-sidebar";
 
 const TIMELINE = [
@@ -17,7 +18,11 @@ export default function TimelinePage() {
         <p className="mb-2 text-sm font-medium text-primary">Insights</p>
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">时间线</h1>
         <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">
-          Skills 收录与 RuleHub 产品演进的重要节点
+          Skills 收录与 RuleHub 产品演进的重要节点。深度教程与评测请见{" "}
+          <Link href="/insights" className="text-primary hover:underline">
+            洞察专栏
+          </Link>
+          。
         </p>
       </header>
 

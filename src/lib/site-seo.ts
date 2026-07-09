@@ -119,8 +119,10 @@ export const STATIC_SITEMAP_ROUTES: Array<{
   { path: "/categories", changeFrequency: "weekly", priority: 0.8 },
   { path: "/vibecoding", changeFrequency: "daily", priority: 0.85 },
   { path: "/vibecoding/news", changeFrequency: "daily", priority: 0.85 },
+  { path: "/insights", changeFrequency: "weekly", priority: 0.8 },
   { path: "/docs", changeFrequency: "monthly", priority: 0.6 },
   { path: "/about", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/contact", changeFrequency: "monthly", priority: 0.5 },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.3 },
   { path: "/terms", changeFrequency: "monthly", priority: 0.3 },
 ];

@@ -5,6 +5,8 @@
 export const IS_PREVIEW_MODE = true;
 
 export const siteFeatures = {
+  /** 多语言切换尚未就绪，暂时隐藏 */
+  showLocaleSwitcher: false,
   showAuth: !IS_PREVIEW_MODE,
   showFavorites: !IS_PREVIEW_MODE,
   showDownloads: !IS_PREVIEW_MODE,

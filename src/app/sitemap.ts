@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllInsights } from "@/lib/insights";
 import { fetchVibecodingItems } from "@/lib/vibecoding-api";
 import { getSiteUrl, STATIC_SITEMAP_ROUTES } from "@/lib/site-seo";
 
@@ -33,5 +34,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     /* API 不可用时仍输出静态路由 */
   }
 
-  return [...staticEntries, ...newsEntries];
+  const insightEntries: MetadataRoute.Sitemap = getAllInsights().map((article) => ({
+    url: getSiteUrl(`/insights/${article.slug}`),
+    lastModified: new Date(article.updatedAt || article.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [...staticEntries, ...insightEntries, ...newsEntries];
 }

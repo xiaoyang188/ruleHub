@@ -12,6 +12,15 @@ function pathWithoutLocale(pathname: string) {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const segment = pathname.split("/")[1];
+  const hasLocale =
+    segment && LOCALES.includes(segment as (typeof LOCALES)[number]);
+
+  if (!hasLocale) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.pathname = pathname === "/" ? "/zh" : `/zh${pathname}`;
+    return NextResponse.redirect(redirectUrl);
+  }
 
   if (IS_PREVIEW_MODE) {
     const barePath = pathWithoutLocale(pathname);
@@ -23,12 +32,6 @@ export function middleware(request: NextRequest) {
       redirectUrl.pathname = hasLocale ? `/${localeSegment}` : "/";
       return NextResponse.redirect(redirectUrl);
     }
-  }
-
-  const segment = pathname.split("/")[1];
-
-  if (!segment || !LOCALES.includes(segment as (typeof LOCALES)[number])) {
-    return NextResponse.next();
   }
 
   const withoutLocale = pathname.slice(`/${segment}`.length) || "/";

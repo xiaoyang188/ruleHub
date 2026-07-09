@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/layout/floating-actions";
 import { RouteProgress } from "@/components/layout/route-progress";
+import { ThemeScript } from "@/components/layout/theme-script";
 import { rootMetadata } from "@/lib/site-seo";
 
 export const metadata: Metadata = rootMetadata;
@@ -14,7 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className="dark">
+    <html lang="zh-CN" className="dark" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-screen antialiased">
         <a
           href="#main-content"

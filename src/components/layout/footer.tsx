@@ -2,12 +2,13 @@ import Link from "next/link";
 
 const FOOTER_LINKS = {
   community: [
-    { href: "https://twitter.com", label: "Twitter" },
-    { href: "https://reddit.com", label: "Reddit" },
+    { href: "/contact", label: "📬 联系我们" },
+    { href: "/about", label: "📄 关于我们" },
   ],
   resources: [
     { href: "/docs", label: "📚 Skills 文档" },
-    { href: "/timeline", label: "📈 洞察" },
+    { href: "/insights", label: "📈 洞察专栏" },
+    { href: "/timeline", label: "📅 时间线" },
     { href: "/docs/skill", label: "📄 Skill 文档" },
     { href: "/docs/official", label: "📁 官方 Skills" },
     { href: "/docs/codex", label: "📄 Codex Skills 文档" },
@@ -15,6 +16,7 @@ const FOOTER_LINKS = {
   ],
   legal: [
     { href: "/about", label: "📄 关于我们" },
+    { href: "/contact", label: "📬 联系我们" },
     { href: "/changelog", label: "📋 更新日志" },
     { href: "/privacy", label: "🔒 隐私政策" },
     { href: "/terms", label: "📜 服务条款" },
