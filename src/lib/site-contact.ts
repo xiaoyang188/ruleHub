@@ -1,7 +1,7 @@
 import { SITE_NAME, SITE_URL } from "@/lib/site-seo";
 
 export const SITE_CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@yimingyinglou.top";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "8002612@gmail.com";
 
 export const SITE_OPERATOR = process.env.NEXT_PUBLIC_SITE_OPERATOR || "RuleHub 运营团队";
 

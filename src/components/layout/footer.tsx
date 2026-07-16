@@ -1,58 +1,33 @@
 import Link from "next/link";
 
 const FOOTER_LINKS = {
-  community: [
-    { href: "/contact", label: "📬 联系我们" },
-    { href: "/about", label: "📄 关于我们" },
-  ],
   resources: [
-    { href: "/docs", label: "📚 Skills 文档" },
-    { href: "/insights", label: "📈 洞察专栏" },
-    { href: "/timeline", label: "📅 时间线" },
-    { href: "/docs/skill", label: "📄 Skill 文档" },
-    { href: "/docs/official", label: "📁 官方 Skills" },
-    { href: "/docs/codex", label: "📄 Codex Skills 文档" },
-    { href: "/docs/spec", label: "📋 Agent Skills 规范" },
+    { href: "/docs", label: "文档中心" },
+    { href: "/insights", label: "洞察专栏" },
+    { href: "/changelog", label: "更新日志" },
   ],
   legal: [
-    { href: "/about", label: "📄 关于我们" },
-    { href: "/contact", label: "📬 联系我们" },
-    { href: "/changelog", label: "📋 更新日志" },
-    { href: "/privacy", label: "🔒 隐私政策" },
-    { href: "/terms", label: "📜 服务条款" },
+    { href: "/about", label: "关于我们" },
+    { href: "/contact", label: "联系我们" },
+    { href: "/privacy", label: "隐私政策" },
+    { href: "/terms", label: "服务条款" },
   ],
 };
 
 export function Footer() {
   return (
-    <footer className="border-t border-border px-4 py-16 md:px-6">
+    <footer className="border-t border-border px-4 py-12 md:px-6">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-foreground">Skills Marketplace</h2>
+          <h2 className="text-xl font-bold text-foreground">RuleHub</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            发现并探索由社区构建的 Agent Skills
+            Agent Skills 市场与 AI 编程灵感
           </p>
         </div>
 
-        <div className="mt-12 grid gap-10 sm:grid-cols-3">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 sm:gap-12 md:mx-auto md:max-w-lg">
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">社区</h3>
-            <ul className="space-y-2">
-              {FOOTER_LINKS.community.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">资源</h3>
+            <h3 className="mb-3 text-sm font-semibold text-foreground">资源</h3>
             <ul className="space-y-2">
               {FOOTER_LINKS.resources.map((link) => (
                 <li key={link.href}>
@@ -68,7 +43,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">法律信息</h3>
+            <h3 className="mb-3 text-sm font-semibold text-foreground">法律信息</h3>
             <ul className="space-y-2">
               {FOOTER_LINKS.legal.map((link) => (
                 <li key={link.href}>
@@ -84,7 +59,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-8 text-center text-xs text-muted-foreground/70">
+        <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground/70">
           <p>
             © {new Date().getFullYear()} RuleHub. 独立社区项目，与 Anthropic、OpenAI 无关联。
           </p>
