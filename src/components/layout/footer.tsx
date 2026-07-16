@@ -25,10 +25,10 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 sm:gap-12 md:mx-auto md:max-w-lg">
+        <div className="mt-10 space-y-8 text-center">
           <div>
             <h3 className="mb-3 text-sm font-semibold text-foreground">资源</h3>
-            <ul className="space-y-2">
+            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
               {FOOTER_LINKS.resources.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -44,7 +44,7 @@ export function Footer() {
 
           <div>
             <h3 className="mb-3 text-sm font-semibold text-foreground">法律信息</h3>
-            <ul className="space-y-2">
+            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
               {FOOTER_LINKS.legal.map((link) => (
                 <li key={link.href}>
                   <Link
