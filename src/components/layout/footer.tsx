@@ -5,6 +5,7 @@ const FOOTER_LINKS = {
     { href: "/docs", label: "文档中心" },
     { href: "/insights", label: "洞察专栏" },
     { href: "/changelog", label: "更新日志" },
+    { href: "/resume", label: "个人简历" },
   ],
   legal: [
     { href: "/about", label: "关于我们" },

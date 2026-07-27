@@ -118,3 +118,56 @@ body {
     animation: none;
   }
 }
+
+@media print {
+  @page {
+    margin: 12mm;
+    size: A4;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #171717 !important;
+  }
+
+  body > header,
+  body > footer,
+  #nprogress,
+  .fixed {
+    display: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  .resume-page {
+    color: #171717 !important;
+  }
+
+  #resume-print-root {
+    border: 1px solid #d4d4d8 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  #resume-print-root,
+  #resume-print-root * {
+    color: #171717 !important;
+    border-color: #d4d4d8 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  #resume-print-root .bg-primary\/10,
+  #resume-print-root [class*="bg-primary"] {
+    background: #f8ece7 !important;
+  }
+
+  #resume-print-root a {
+    color: #c57f66 !important;
+    text-decoration: none !important;
+  }
+}
