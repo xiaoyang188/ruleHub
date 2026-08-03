@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const SITE_NAME = "RuleHub";
 
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.yimingyinglou.top"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.agkey.net"
 ).replace(/\/$/, "");
 
 export const SITE_DESCRIPTION =
