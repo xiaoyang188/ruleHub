@@ -9,6 +9,10 @@ export function getSkillSlug(skill: Skill) {
   return `skills-${skill.name}`;
 }
 
+export function getGithubArchiveUrl(author: string, repoName: string) {
+  return `https://github.com/${author}/${repoName}/archive/refs/heads/main.zip`;
+}
+
 export function getSkillDetailPath(skill: Skill) {
   const repoName = getSkillRepoName(skill.repo);
   return `/creators/${skill.author}/${repoName}/${getSkillSlug(skill)}`;

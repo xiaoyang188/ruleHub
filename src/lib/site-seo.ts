@@ -121,6 +121,7 @@ export const STATIC_SITEMAP_ROUTES: Array<{
   { path: "/vibecoding/news", changeFrequency: "daily", priority: 0.85 },
   { path: "/insights", changeFrequency: "weekly", priority: 0.8 },
   { path: "/docs", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/docs/faq", changeFrequency: "monthly", priority: 0.65 },
   { path: "/about", changeFrequency: "monthly", priority: 0.5 },
   { path: "/resume", changeFrequency: "monthly", priority: 0.4 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.5 },

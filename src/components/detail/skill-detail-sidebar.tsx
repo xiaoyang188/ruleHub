@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, ChevronDown, Globe, Heart, Share2 } from "lucide-react";
+import { Briefcase, ChevronDown, Download, Globe, Heart, Share2 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { CreatorAvatar } from "@/components/detail/creator-avatar";
@@ -18,9 +18,11 @@ const AUTHOR_WEBSITE: Record<string, string> = {
 export function SkillDetailSidebar({
   skill,
   githubUrl,
+  downloadUrl,
 }: {
   skill: Skill;
   githubUrl: string;
+  downloadUrl: string;
 }) {
   const [favorited, setFavorited] = useState(false);
   const repoName = getSkillRepoName(skill.repo);
@@ -104,12 +106,16 @@ export function SkillDetailSidebar({
           </div>
           <div className="space-y-3 p-4 text-xs">
             {siteFeatures.showDownloads && (
-              <button
-                type="button"
-                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2.5 font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+              <a
+                href={downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2.5 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
               >
+                <Download className="h-3.5 w-3.5" />
                 下载 Zip
-              </button>
+              </a>
             )}
             <ManusRunLink variant="sidebar" />
           </div>
@@ -153,9 +159,11 @@ export function SkillDetailSidebar({
 export function SkillInstallPanel({
   prompt,
   command,
+  downloadUrl,
 }: {
   prompt: string;
   command: string;
+  downloadUrl?: string;
 }) {
   const [tab, setTab] = useState<"prompt" | "command">("prompt");
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -238,6 +246,24 @@ export function SkillInstallPanel({
             </div>
           )}
         </div>
+
+        {siteFeatures.showDownloads && downloadUrl && (
+          <div className="flex flex-col gap-2.5 border-t border-border px-3 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs leading-5 text-muted-foreground">
+              想先保存到本地？可下载 RuleHub 当前索引到的 GitHub 仓库压缩包。
+            </p>
+            <a
+              href={downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              <Download className="h-3.5 w-3.5" />
+              下载 Zip
+            </a>
+          </div>
+        )}
       </div>
 
       {siteFeatures.showManus && (

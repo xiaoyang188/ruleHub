@@ -2,8 +2,9 @@ import { OccupationsPageContent } from "@/components/occupations/occupations-pag
 import { createPageMetadata } from "@/lib/site-seo";
 
 export const metadata = createPageMetadata({
-  title: "职业技能分类",
-  description: "按 SOC 职业领域浏览 Agent Skills，找到适合你岗位的 Claude / Codex 技能包。",
+  title: "按职业浏览 Agent Skills",
+  description:
+    "按美国劳工部 SOC 标准，查找各职业对应的 Agent Skills、自动化能力和工作流技能。",
   path: "/occupations",
 });
 

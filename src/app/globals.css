@@ -119,6 +119,17 @@ body {
   }
 }
 
+.faq-answer .insights-prose p,
+.faq-answer .insights-prose li {
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.faq-answer .insights-prose ul {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 @media print {
   @page {
     margin: 12mm;

@@ -2,8 +2,9 @@ import { CategoriesPageContent } from "@/components/categories/categories-page-c
 import { createPageMetadata } from "@/lib/site-seo";
 
 export const metadata = createPageMetadata({
-  title: "Skills 分类",
-  description: "按工具、开发、商业等领域浏览 Agent Skills 分类目录。",
+  title: "按分类浏览 Agent Skills",
+  description:
+    "按分类探索 Claude Code、Codex 与 ChatGPT 的 Agent Skills，查找开发工具、测试、数据、文档和工作流技能。",
   path: "/categories",
 });
 

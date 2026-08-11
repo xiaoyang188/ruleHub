@@ -21,15 +21,9 @@ export interface Category {
   count: string;
 }
 
-export interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
 export const STATS = {
   totalSkills: "2,082,862",
-  classifiedPercent: "81",
+  classifiedPercent: "93",
   occupationGroups: 23,
   socPositions: 867,
 };
@@ -147,57 +141,6 @@ export const CATEGORIES: Category[] = [
   { id: "devops", name: "DevOps", count: "157,701" },
   { id: "documentation", name: "文档", count: "140,258" },
   { id: "content-media", name: "内容与媒体", count: "123,779" },
-];
-
-export const FAQ_ITEMS: FaqItem[] = [
-  {
-    id: "1",
-    question: "什么是 Agent Skills?",
-    answer:
-      "Agent Skills 是以 SKILL.md 文件形式存在的模块化指令包，用于扩展 AI 编码助手的能力。每个 skill 包含名称、描述和使用指南，帮助 AI 在特定场景下表现更专业。",
-  },
-  {
-    id: "2",
-    question: "如何从 RuleHub 安装 Agent Skills?",
-    answer:
-      "在 Claude Code 中可以使用 /plugin add 命令一键安装。也可以手动克隆 GitHub 仓库，将 skill 文件夹复制到 ~/.claude/skills/（个人）或 .claude/skills/（项目）目录。",
-  },
-  {
-    id: "3",
-    question: "这些 skills 使用安全吗?",
-    answer:
-      "所有 skills 均来自公开的 GitHub 仓库，RuleHub 只做索引展示。安装前请务必审查源代码，确认没有恶意指令或不当权限请求。",
-  },
-  {
-    id: "4",
-    question: "我可以同时使用多个 skills 吗?",
-    answer:
-      "可以。大多数 AI 编码工具支持同时加载多个 skills，AI 会根据当前任务自动选择最相关的 skill。",
-  },
-  {
-    id: "5",
-    question: "我可以创建并分享自己的 skill 吗?",
-    answer:
-      "当然可以。只需在 GitHub 上创建包含 SKILL.md 的公开仓库，RuleHub 会在下次索引时自动收录。",
-  },
-  {
-    id: "6",
-    question: "Skills 和 slash commands 有什么不同?",
-    answer:
-      "Slash commands 是用户主动触发的单次指令，而 Skills 是 AI 自动识别并应用的上下文知识，无需手动调用。",
-  },
-  {
-    id: "7",
-    question: "Skills 多久更新一次?",
-    answer:
-      "RuleHub 定期从 GitHub 同步更新索引。具体频率取决于仓库的活跃度和平台的爬取周期。",
-  },
-  {
-    id: "8",
-    question: "本网站与 Anthropic 或 OpenAI 有关联吗?",
-    answer:
-      "没有。RuleHub 是独立的社区项目，与 Anthropic、OpenAI 或任何 AI 公司均无关联。",
-  },
 ];
 
 export const NAV_LINKS = [

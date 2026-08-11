@@ -11,7 +11,7 @@ import {
   getInstallPrompt,
   getSkillDetailMeta,
 } from "@/lib/skill-detail-meta";
-import { getSkillRepoName } from "@/lib/skill-url";
+import { getSkillRepoName, getGithubArchiveUrl } from "@/lib/skill-url";
 
 export function SkillDetailView({
   skill,
@@ -36,6 +36,7 @@ export function SkillDetailView({
   const installCommand = `/plugin marketplace add ${skill.author}/${repoName}`;
   const installPrompt = getInstallPrompt(skill, repoName);
   const repoLabel = repoName.charAt(0).toUpperCase() + repoName.slice(1);
+  const downloadUrl = getGithubArchiveUrl(skill.author, repoName);
 
   return (
     <div className="min-h-screen bg-background py-8">
@@ -102,12 +103,16 @@ export function SkillDetailView({
 
               {fromApi && <p className="mt-2 text-xs text-primary">· 实时索引</p>}
 
-              <SkillInstallPanel prompt={installPrompt} command={installCommand} />
+              <SkillInstallPanel
+                prompt={installPrompt}
+                command={installCommand}
+                downloadUrl={downloadUrl}
+              />
             </div>
           </div>
 
           <div className="w-full lg:sticky lg:top-24 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:w-[350px] lg:max-w-[350px] lg:self-start">
-            <SkillDetailSidebar skill={skill} githubUrl={githubUrl} />
+            <SkillDetailSidebar skill={skill} githubUrl={githubUrl} downloadUrl={downloadUrl} />
           </div>
 
           <div className="min-w-0 lg:col-start-1 lg:row-start-2">

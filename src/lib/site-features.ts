@@ -9,7 +9,8 @@ export const siteFeatures = {
   showLocaleSwitcher: false,
   showAuth: !IS_PREVIEW_MODE,
   showFavorites: !IS_PREVIEW_MODE,
-  showDownloads: !IS_PREVIEW_MODE,
+  /** 下载 Zip 不依赖账号，预览阶段也可开放 */
+  showDownloads: true,
   showManus: !IS_PREVIEW_MODE,
   showPublishDocs: !IS_PREVIEW_MODE,
   showApiAuthDocs: !IS_PREVIEW_MODE,
