@@ -6,11 +6,7 @@ export const DEFAULT_LOCALE: Locale = "zh";
 export function withLocale(path: string, locale: Locale): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
 
-  if (locale === "en") return normalized;
-  if (locale === "zh") {
-    if (normalized === "/") return "/zh";
-    return `/zh${normalized}`;
-  }
+  if (locale === "en" || locale === "zh") return normalized;
   if (normalized === "/") return `/${locale}`;
   return `/${locale}${normalized}`;
 }

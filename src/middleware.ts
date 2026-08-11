@@ -16,20 +16,32 @@ export function middleware(request: NextRequest) {
   const hasLocale =
     segment && LOCALES.includes(segment as (typeof LOCALES)[number]);
 
-  if (!hasLocale) {
+  // Default locale (zh) uses bare paths; redirect legacy /zh/* URLs.
+  if (segment === "zh") {
     const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = pathname === "/" ? "/zh" : `/zh${pathname}`;
-    return NextResponse.redirect(redirectUrl);
+    redirectUrl.pathname = pathname.slice("/zh".length) || "/";
+    const response = NextResponse.redirect(redirectUrl, 308);
+    response.cookies.set("NEXT_LOCALE", "zh", { path: "/" });
+    return response;
+  }
+
+  if (!hasLocale) {
+    if (IS_PREVIEW_MODE && (pathname === "/login" || pathname.startsWith("/auth"))) {
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.pathname = "/";
+      return NextResponse.redirect(redirectUrl);
+    }
+
+    const response = NextResponse.next();
+    response.cookies.set("NEXT_LOCALE", "zh", { path: "/" });
+    return response;
   }
 
   if (IS_PREVIEW_MODE) {
     const barePath = pathWithoutLocale(pathname);
     if (barePath === "/login" || barePath.startsWith("/auth")) {
-      const localeSegment = pathname.split("/")[1];
-      const hasLocale =
-        localeSegment && LOCALES.includes(localeSegment as (typeof LOCALES)[number]);
       const redirectUrl = request.nextUrl.clone();
-      redirectUrl.pathname = hasLocale ? `/${localeSegment}` : "/";
+      redirectUrl.pathname = hasLocale ? `/${segment}` : "/";
       return NextResponse.redirect(redirectUrl);
     }
   }

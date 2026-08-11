@@ -12,7 +12,7 @@ export function getZuqiuApiBase(): string {
   return (
     process.env.ZUQIU_API_BASE ||
     process.env.NEXT_PUBLIC_ZUQIU_API_BASE ||
-    "https://api.agkey.net"
+    "https://api.yimingyinglou.top"
   ).replace(/\/$/, "");
 }
 
