@@ -1,5 +1,6 @@
 import { Breadcrumbs } from "@/components/layout/catalog-sidebar";
 import { ResumeView } from "@/components/resume/resume-view";
+import { siteFeatures } from "@/lib/site-features";
 import { createPageMetadata } from "@/lib/site-seo";
 
 export const metadata = createPageMetadata({
@@ -8,6 +9,7 @@ export const metadata = createPageMetadata({
     "小杨的个人简历：独立开发者，熟练使用 Cursor，拥有 RuleHub、zuqiu 等项目经验，随时到岗。",
   path: "/resume",
   keywords: ["简历", "小杨", "Cursor", "独立开发", "RuleHub"],
+  noIndex: !siteFeatures.showResume,
 });
 
 export default function ResumePage() {

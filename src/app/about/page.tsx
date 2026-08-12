@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/layout/catalog-sidebar";
 import { PrimaryCtaLink } from "@/components/ui/site-chrome";
 import { SITE_CONTACT_EMAIL, SITE_OPERATOR } from "@/lib/site-contact";
 import { STATS } from "@/data/mock";
+import { siteFeatures } from "@/lib/site-features";
 import { createPageMetadata, SITE_NAME, SITE_URL } from "@/lib/site-seo";
 
 export const metadata = createPageMetadata({
@@ -97,23 +98,30 @@ export default function AboutPage() {
         <section className="space-y-3">
           <h2 className="text-lg font-semibold text-foreground">站长简介</h2>
           <p>
-            本站由站长「小杨」独立维护。如需了解更多个人经历与项目，可查看{" "}
-            <Link href="/resume" className="text-primary hover:underline">
-              个人简历
-            </Link>
-            。
+            本站由站长「小杨」独立维护。
+            {siteFeatures.showResume && (
+              <>
+                如需了解更多个人经历与项目，可查看{" "}
+                <Link href="/resume" className="text-primary hover:underline">
+                  个人简历
+                </Link>
+                。
+              </>
+            )}
           </p>
         </section>
 
         <section className="flex flex-wrap gap-3 pt-4">
           <PrimaryCtaLink href="/skills">浏览目录</PrimaryCtaLink>
-          <Link
-            href="/resume"
-            className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:border-primary/50"
-          >
-            个人简历
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          {siteFeatures.showResume && (
+            <Link
+              href="/resume"
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:border-primary/50"
+            >
+              个人简历
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          )}
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:border-primary/50"

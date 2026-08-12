@@ -15,4 +15,6 @@ export const siteFeatures = {
   showPublishDocs: !IS_PREVIEW_MODE,
   showApiAuthDocs: !IS_PREVIEW_MODE,
   showApiDocs: !IS_PREVIEW_MODE,
+  /** 个人简历入口暂时隐藏，页面仍可直达 /resume */
+  showResume: false,
 } as const;

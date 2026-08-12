@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { siteFeatures } from "@/lib/site-features";
 
 const FOOTER_LINKS = {
   resources: [
     { href: "/docs", label: "文档中心" },
     { href: "/insights", label: "洞察专栏" },
     { href: "/changelog", label: "更新日志" },
-    { href: "/resume", label: "个人简历" },
+    { href: "/resume", label: "个人简历", resume: true },
   ],
   legal: [
     { href: "/about", label: "关于我们" },
@@ -30,7 +31,9 @@ export function Footer() {
           <div>
             <h3 className="mb-3 text-sm font-semibold text-foreground">资源</h3>
             <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              {FOOTER_LINKS.resources.map((link) => (
+              {FOOTER_LINKS.resources
+                .filter((link) => !("resume" in link && link.resume) || siteFeatures.showResume)
+                .map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
