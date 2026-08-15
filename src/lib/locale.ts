@@ -11,8 +11,11 @@ export function withLocale(path: string, locale: Locale): string {
   return `/${locale}${normalized}`;
 }
 
-export function stripLocale(pathname: string): { locale: Locale | null; pathname: string } {
-  const segments = pathname.split("/").filter(Boolean);
+export function stripLocale(pathname: string | null | undefined): {
+  locale: Locale | null;
+  pathname: string;
+} {
+  const segments = (pathname || "/").split("/").filter(Boolean);
   const first = segments[0];
 
   if (first && LOCALES.includes(first as Locale)) {
@@ -26,6 +29,6 @@ export function stripLocale(pathname: string): { locale: Locale | null; pathname
   return { locale: null, pathname: pathname || "/" };
 }
 
-export function getLocaleFromPathname(pathname: string): Locale {
+export function getLocaleFromPathname(pathname: string | null | undefined): Locale {
   return stripLocale(pathname).locale ?? DEFAULT_LOCALE;
 }

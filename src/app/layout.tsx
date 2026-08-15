@@ -6,6 +6,7 @@ import { BackToTop } from "@/components/layout/floating-actions";
 import { RouteProgress } from "@/components/layout/route-progress";
 import { ThemeScript } from "@/components/layout/theme-script";
 import { AdSenseScript } from "@/components/seo/adsense-script";
+import { DomMutationGuard } from "@/components/seo/dom-mutation-guard";
 import { rootMetadata } from "@/lib/site-seo";
 
 export const metadata: Metadata = rootMetadata;
@@ -29,6 +30,7 @@ export default function RootLayout({
           跳转到主要内容
         </a>
         <RouteProgress />
+        <DomMutationGuard />
         <Header />
         <main id="main-content" className="relative overflow-x-clip pt-16">
           {children}

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, withLocale, type Locale } from "@/lib/locale";
 
 export function useLocale(): Locale {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
   return getLocaleFromPathname(pathname);
 }
 
