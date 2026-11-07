@@ -117,6 +117,8 @@ export const STATIC_SITEMAP_ROUTES: Array<{
   { path: "/creators", changeFrequency: "weekly", priority: 0.8 },
   { path: "/occupations", changeFrequency: "weekly", priority: 0.8 },
   { path: "/categories", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/cases", changeFrequency: "weekly", priority: 0.85 },
+  { path: "/resume", changeFrequency: "monthly", priority: 0.7 },
   { path: "/vibecoding", changeFrequency: "daily", priority: 0.85 },
   { path: "/vibecoding/news", changeFrequency: "daily", priority: 0.85 },
   { path: "/insights", changeFrequency: "weekly", priority: 0.8 },

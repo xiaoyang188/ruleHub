@@ -1,14 +1,15 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/layout/catalog-sidebar";
 import { ResumeView } from "@/components/resume/resume-view";
 import { siteFeatures } from "@/lib/site-features";
 import { createPageMetadata } from "@/lib/site-seo";
 
 export const metadata = createPageMetadata({
-  title: "个人简历 · 小杨",
+  title: "个人简历 · 杨少威",
   description:
-    "小杨的个人简历：独立开发者，熟练使用 Cursor，拥有 RuleHub、zuqiu 等项目经验，随时到岗。",
+    "杨少威的个人简历：前端工程师，擅长 uni-app / 小程序 / Nuxt 多端落地，项目含搂团、懂球通、开普森、百胜商城、古东巴与 RuleHub。",
   path: "/resume",
-  keywords: ["简历", "小杨", "Cursor", "独立开发", "RuleHub"],
+  keywords: ["简历", "杨少威", "前端工程师", "uni-app", "小程序", "RuleHub"],
   noIndex: !siteFeatures.showResume,
 });
 
@@ -23,7 +24,11 @@ export default function ResumePage() {
         <p className="mb-2 text-sm font-medium text-primary">Resume</p>
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">个人简历</h1>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          站长小杨的在线简历。可直接浏览，也可一键导出 PDF。
+          站长杨少威的在线简历。可直接浏览，也可一键导出 PDF。更完整的项目卡片见{" "}
+          <Link href="/cases" className="font-medium text-primary hover:underline">
+            案例展示
+          </Link>
+          。
         </p>
       </header>
 

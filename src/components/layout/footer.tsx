@@ -6,6 +6,7 @@ const FOOTER_LINKS = {
     { href: "/docs", label: "文档中心" },
     { href: "/insights", label: "洞察专栏" },
     { href: "/changelog", label: "更新日志" },
+    { href: "/cases", label: "案例展示" },
     { href: "/resume", label: "个人简历", resume: true },
   ],
   legal: [
@@ -53,7 +54,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-mmted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </Link>

@@ -5,11 +5,13 @@ import {
   Calendar,
   Download,
   GraduationCap,
+  LayoutGrid,
   Mail,
   MapPin,
   Sparkles,
   Wrench,
 } from "lucide-react";
+import Link from "next/link";
 import { getResumeAge, RESUME } from "@/data/resume";
 import { cn } from "@/lib/utils";
 
@@ -23,17 +25,24 @@ export function ResumeView() {
   return (
     <div className="resume-page">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden">
-        <p className="text-sm text-muted-foreground">
-          在线简历 · 可导出为 PDF
-        </p>
-        <button
-          type="button"
-          onClick={handleExportPdf}
-          className="inline-flex items-center gap-2 rounded-lg border border-primary/50 bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
-        >
-          <Download className="h-4 w-4" />
-          导出 PDF
-        </button>
+        <p className="text-sm text-muted-foreground">在线简历 · 可导出为 PDF</p>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link
+            href="/cases"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:bg-muted/40"
+          >
+            <LayoutGrid className="h-4 w-4 text-primary" />
+            案例展示
+          </Link>
+          <button
+            type="button"
+            onClick={handleExportPdf}
+            className="inline-flex items-center gap-2 rounded-lg border border-primary/50 bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+          >
+            <Download className="h-4 w-4" />
+            导出 PDF
+          </button>
+        </div>
       </div>
 
       <article
@@ -60,6 +69,9 @@ export function ResumeView() {
               <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
                 <span className="rounded-md border border-border bg-background/50 px-2.5 py-1">
                   {RESUME.gender} · {age} 岁
+                </span>
+                <span className="rounded-md border border-border bg-background/50 px-2.5 py-1">
+                  {RESUME.location}
                 </span>
                 <span className="rounded-md border border-border bg-background/50 px-2.5 py-1">
                   出生 {RESUME.birthDateDisplay}
@@ -140,6 +152,10 @@ export function ResumeView() {
                 基本信息
               </h2>
               <dl className="space-y-2 text-sm">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-muted-foreground">所在城市</dt>
+                  <dd className="font-medium text-foreground">{RESUME.location}</dd>
+                </div>
                 <div className="flex justify-between gap-3">
                   <dt className="text-muted-foreground">到岗时间</dt>
                   <dd className="font-medium text-foreground">{RESUME.availability}</dd>

@@ -3,6 +3,7 @@
 import {
   BookOpen,
   BriefcaseBusiness,
+  LayoutGrid,
   LogIn,
   Menu,
   Newspaper,
@@ -23,6 +24,7 @@ const NAV_ITEMS = [
   { href: "/skills", label: "Skills", icon: Package },
   { href: "/creators", label: "创作者", icon: Users },
   { href: "/occupations", label: "职业技能", icon: BriefcaseBusiness },
+  { href: "/cases", label: "案例展示", icon: LayoutGrid },
   { href: "/vibecoding", label: "VibeCoding", icon: Sparkles },
   { href: "/vibecoding/news", label: "AI 消息", icon: Newspaper },
   { href: "/docs", label: "文档", icon: BookOpen },
